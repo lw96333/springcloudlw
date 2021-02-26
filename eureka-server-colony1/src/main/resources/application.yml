@@ -1,0 +1,25 @@
+# 指定运行端口
+server:
+  port: 8002
+
+# 指定服务名称
+spring:
+  application:
+    name: eureka-server
+  security:
+    user:
+      # 配置spring security登录用户名和密码
+      name: root
+      password: 1234
+
+# 指定主机地址
+eureka:
+  instance:
+    hostname: replica1
+  client:
+    fetch-registry: false
+    register-with-eureka: true
+    service-url:
+      # 注册到另一个Eureka注册中心
+      defaultZone: http://root:1234@replica2:8003/eureka
+
